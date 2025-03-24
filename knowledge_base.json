@@ -1,0 +1,33 @@
+
+[
+    {
+        "Number": "KBA0001",
+		"title": "Invoking Management API Calls from an API Proxy",
+        "description": "Using management APIs within API proxies introduces runtime dependencies on management servers, which may not be highly available and can introduce network latencies.",
+        "solution": "Avoid invoking management APIs from within API proxies. Instead, use appropriate policies or configurations to access necessary information without relying on management server calls."
+    },
+    {
+		"Number": "KBA0002",
+        "title": "Managing Edge Resources Without Using Source Control",
+        "description": "Modifying resources like API proxies, shared flows, and other configurations directly in Apigee Edge without source control can lead to loss of historical data and difficulties in tracking changes.",
+        "solution": "Implement source control management for all Apigee Edge resources to maintain version history, facilitate collaboration, and ensure reliable rollbacks when necessary."
+    },
+    {
+		"Number": "KBA0003",
+        "title": "Defining Multiple ProxyEndpoints in an API Proxy",
+        "description": "Including multiple ProxyEndpoints within a single API proxy can complicate maintenance, obscure analytics, and hinder troubleshooting efforts.",
+        "solution": "Design each API proxy with a single ProxyEndpoint. For shared logic across proxies, utilize shared flows to promote clarity and maintainability."
+    },
+    {
+        "Number": "KBA0004",
+		"title": "Load Balancing with a Single Target Server and Non-Zero MaxFailures",
+        "description": "Configuring load balancing with only one TargetServer and setting MaxFailures to a non-zero value can cause continuous request failures until the API proxy is redeployed.",
+        "solution": "Include multiple TargetServers in the load balancer configuration and define a Health Monitor to automatically reintegrate a TargetServer once it becomes available again."
+    },
+    {
+        "Number": "KBA0005",
+		"title": "Allowing a Slow Backend",
+        "description": "Relying on backend systems that are inadequately sized or slow can degrade API performance and lead to request failures.",
+        "solution": "Ensure backend systems are appropriately scaled and optimized to handle expected API traffic, thereby maintaining efficient response times."
+    }
+]
